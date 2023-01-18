@@ -1,0 +1,23 @@
+<div class="ps-container" id="chat-content" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div *ngFor="let item of messageArray">
+        <div *ngIf="item.name==='You'" class="media media-chat">
+            <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+            <div class="media-body">
+                <p>{{item.message}}</p>
+                <p class="meta"><time datetime="2018">00:12</time></p>
+            </div>
+        </div>
+        <div *ngIf="item.name==='Assistant'" class="media media-chat media-chat-reverse">
+            <div class="media-body">
+                <p>{{item.message}}</p>
+                <p class="meta"><time datetime="2018">00:12</time></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="publisher bt-1 border-light">
+    <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+    <input id="input" type="text" name="" class="publisher-input" autocomplete="off" [(ngModel)]='message' (keyup.enter)="sendMessage()" />
+    <button class="mic-btn" (click)="speechRecogService()"><i class="fa fa-microphone"></i></button>
+</div>
